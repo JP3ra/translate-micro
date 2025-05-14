@@ -74,7 +74,12 @@ translator = TranslationService()
 
 @app.route('/', methods=['GET'])
 def home():
-    return jsonify({'message': 'Translation API is up. Use POST /translate'}), 200
+    return {'message': 'IndicTrans2 Translation API is live. Use /translate POST'}, 200
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return {'status': 'ok'}, 200
+
 
 
 @app.route('/translate', methods=['POST'])
