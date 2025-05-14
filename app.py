@@ -72,6 +72,11 @@ class TranslationService:
 # Initialize the translator (no fixed target language)
 translator = TranslationService()
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({'message': 'Translation API is up. Use POST /translate'}), 200
+
+
 @app.route('/translate', methods=['POST'])
 def translate_text():
     data = request.get_json()
